@@ -44,14 +44,13 @@ This POC solves the problem by automatically generating **ready-to-run INSERT sc
 ---
 
 ## 🖼️ Screenshots
-
-![Demo animation](Docs/images/ui-1.png)
-![Demo animation](Docs/images/ui-2.png)
-![Demo animation](Docs/images/ui-3.png)
-![Demo animation](Docs/images/ui-4.png)
-![Demo animation](Docs/images/ui-5.png)
-![Demo animation](Docs/images/ui-6.png)
-
+```
+/Docs/images/ui-1.png
+/Docs/images/ui-2.png
+/Docs/images/ui-3.png
+/Docs/images/ui-4.png
+/Docs/images/ui-5.png
+/Docs/images/ui-6.png
 ```
 
 ---
