@@ -1,6 +1,6 @@
 ﻿@model SqlScriptGeneratorModel
 @{
-    ViewData["Title"] = "SQL Script Generator";
+    ViewData["Title"] = "SQL Insert Script Generator – In 1 Click";
     Layout = null;
 }
 
@@ -9,7 +9,10 @@
 
 <div class="container d-flex justify-content-center align-items-center vh-50">
     <div class="glass-card p-4">      
-        <a class="navbar-brand" asp-area="" asp-controller="Sql" asp-action="Index"><h3 class="text-white mb-3">SQL Script Generator</h3></a>
+        <a class="navbar-brand" asp-area="" asp-controller="Sql" asp-action="Index"><h3 class="text-white mb-3">
+                SQL Insert Script Generator – In 1 Click
+            </h3>
+        </a>
         <form asp-action="Index" method="post" id="sqlForm" onkeydown="return event.key !== 'Enter';">
         <!-- Number of Tables -->
         <div class="mb-3">           
