@@ -19,6 +19,7 @@ In many enterprise projects:
 - Developers do not have access to database backups
 - Only filtered subsets of data are required
 - Manual script creation is slow and error-prone
+- Up-To 50 Tables Insert Script In1Click 
 
 This POC solves the problem by automatically generating **ready-to-run INSERT scripts** without requiring backup access.
 
@@ -34,14 +35,23 @@ This POC solves the problem by automatically generating **ready-to-run INSERT sc
 - Ideal for enterprise SQL Server workflows
 
 ---
+## 🚀 Demo
 
-## 🖼️ Demo & Screenshots
+![Demo animation](./Docs/demo/demo.gif)
 
-> Add screenshots or GIFs here to significantly increase repo engagement
+---
 
-```
-/docs/images/ui.png
-/docs/images/output.png
+---
+
+## 🖼️ Screenshots
+
+![Demo animation](Docs/images/ui-1.png)
+![Demo animation](Docs/images/ui-2.png)
+![Demo animation](Docs/images/ui-3.png)
+![Demo animation](Docs/images/ui-4.png)
+![Demo animation](Docs/images/ui-5.png)
+![Demo animation](Docs/images/ui-6.png)
+
 ```
 
 ---
@@ -51,7 +61,7 @@ This POC solves the problem by automatically generating **ready-to-run INSERT sc
 1. Configure database connection
 2. Select tables (up to 50)
 3. Define optional filter criteria per table
-4. Click **Generate**
+4. Click **Generate SQL**
 5. Execute the generated script in the target database
 
 ---
