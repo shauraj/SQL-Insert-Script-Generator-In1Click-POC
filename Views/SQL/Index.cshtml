@@ -1,0 +1,96 @@
+﻿@model SqlScriptGeneratorModel
+@{
+    ViewData["Title"] = "SQL Script Generator";
+    Layout = null;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/sql.css" rel="stylesheet" />
+
+<div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="glass-card p-4">      
+        <a class="navbar-brand" asp-area="" asp-controller="Sql" asp-action="Index"><h3 class="text-white mb-3">SQL Script Generator</h3></a>
+        <form asp-action="Index" method="post" id="sqlForm" onkeydown="return event.key !== 'Enter';">
+        <!-- Number of Tables -->
+        <div class="mb-3">           
+            <strong> <label class="form-label text-white">Please Enter Number of Table Count and it should be between 1 and 50.</label></strong>
+                <input asp-for="TableCount" onchange="handleTextChange(this)" class="form-control" id="TC" />
+            <span id="output"></span>
+        </div>
+        <!-- Configuration -->
+        <div class="mb-3">
+            <strong><label class="form-label text-white">Configuration</label></strong>
+            <div class="row text-white">
+                <div class="col-6">
+                        @for (var index = 0; index < @Model.chk.Count(); index++)
+                        {
+                            <div class="form-check">
+                            <input type="checkbox" asp-for="@Model.chk[index].IsChecked" class="form-check-input" />
+                            <label class="form-check-label" asp-for="@Model.chk[index].IsChecked">
+                                @Model.chk[index].ConfigurationName
+                            </label>
+                            <input type="hidden" asp-for="@Model.chk[index].Id" />
+                            <input type="hidden" asp-for="@Model.chk[index].ConfigurationName" />
+                            <br />
+                            </div>
+                        }
+                </div>
+             
+            </div>
+        </div>
+
+        <!-- Table Grid -->
+        <div class="table-responsive text-white small mb-3 txtcontrol" >
+            @if (!string.IsNullOrEmpty(Model.GeneratedScript))
+                    {
+                    <div class="mt-3" id="GeneratedScript">
+                        <strong> <label class="form-label text-white" id="lblBoxContainer">Generated SQL Script</label></strong>
+                        <table class="table table-borderless text-white small">
+                            <tbody id="textBoxContainer">
+                                <tr>
+                                    <td>
+                                    <textarea class="form-control glass-input txtarea"
+                                          rows="15"
+                                          readonly>@Model.GeneratedScript</textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                    else
+                    {
+                    <strong> <label class="form-label text-white" id="lblBoxContainer">List of Tables Name With Their Filter/Where Conditions</label></strong>
+                    <table class="table table-borderless text-white small">
+                        <thead id="theadBoxContainer">
+                            <tr>
+                                <th>Table Name</th>
+                                <th>Filter/Where Condition</th>
+                              @*   <th>Action</th> *@
+                            </tr>
+                        </thead>
+                        <tbody id="textBoxContainer">
+                        </tbody>
+                    </table>
+                    }
+        </div>
+          
+        <!-- Add Buttons -->
+        <div class="d-grid gap-2">
+                <button class="btn btn-light text-dark rounded-pill" type="submit" id="myButton">Generate Sql Script</button>
+        </div>
+        </form>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/sql.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+    if ('@Model.GeneratedScript' != '') {
+        $('#TC').attr('disabled', 'disabled');
+        $('#TC').attr('disabled', true);
+        $('#myButton').attr('disabled', 'disabled');
+        $('#myButton').attr('disabled', true);
+    }
+    });
+</script>
